@@ -12,7 +12,7 @@ You also have to create token.ini to store you telegram-bot TOKEN
 # Launching
 To launch telegram bot
 ```bash
-ruby daemon.py start
+ruby telegram-bot-daemon.py start
 ```
 If this script deployed in PRC you should use 'proxychains'
 
