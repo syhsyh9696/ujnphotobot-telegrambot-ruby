@@ -42,7 +42,7 @@ def help()
             "/stop - Stop this bot\n" +
             "/random - Get random picture and profile\n" +
             "/randomgirl - Get random girl picture\n" +
-            "/num - Get specify picture (/num 20130000000)" +
+            "/num - Get specify picture (/num 20130000000)\n" +
             "/name - Get specift picture ")
 end
 
