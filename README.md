@@ -21,3 +21,17 @@ I find a API in my school websites but it has always really hard to look. So I d
 
 # Contact Me
 You can write me via telegram @syhsyh9696 if you have some questions.
+
+# How wo use
+In dialog box @ujnphotobot
+```
+/start                  #To start this bot
+/stop                   #To stop this bot
+/help                   #Get bot helper
+/random                 #Get random individual image
+/randomgirl             #Get random girl photo
+/name + 'student name'  #Use name to find the photo
+/num + 'student number' #Use number to find the photo
+/doge                   #Extra command
+/ha                     #Extra command
+```
