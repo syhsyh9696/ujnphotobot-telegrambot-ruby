@@ -14,7 +14,7 @@ To launch telegram bot
 ```bash
 ruby telegram-bot-daemon.rb start
 ```
-If this script deployed in PRC you should use 'proxychains'
+If this script deployed in PRC[People's Republic of China] you should use 'proxychains'
 
 # Motivation
 I find a API in my school websites but it has always really hard to look. So I decided to solve this problem by developing @ujnphotobot
