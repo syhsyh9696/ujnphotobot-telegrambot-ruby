@@ -6,7 +6,7 @@ module Unicorn
 
     def randomnum()
         seed = Random.rand(24370) + 1
-        File.open("student.ini", "r") do |io|
+        File.open("/root/ujnphotobot-ruby/student.ini", "r") do |io|
             while line = io.gets
                 line.chomp!
                 column = line.split()
@@ -18,7 +18,7 @@ module Unicorn
 
     def randomgirl()
         seed = Random.rand(12923) + 1
-        File.open("student_girl.ini", "r") do |io|
+        File.open("/root/ujnphotobot-ruby/student_girl.ini", "r") do |io|
             while line = io.gets
                 line.chomp!
                 return line if io.lineno == seed
@@ -38,7 +38,7 @@ module Unicorn
 
     def checkname(name)
         array = Array.new
-        File.open("student.ini", "r") do |io|
+        File.open("/root/ujnphotobot-ruby/student.ini", "r") do |io|
             while line = io.gets
                 line.chomp!
                 column = line.split()
@@ -50,7 +50,7 @@ module Unicorn
     end
 
     def checknumber(num)
-        File.open("student.ini", "r") do |io|
+        File.open("/root/ujnphotobot-ruby/student.ini", "r") do |io|
             while line = io.gets
                 line.chomp!
                 temp = line.split()
@@ -62,7 +62,7 @@ module Unicorn
 
     def namelog(line, username, first_name, last_name)
         time = Time.now
-        io = File.open("slectedname.log", "a")
+        io = File.open("/root/ujnphotobot-ruby/slectedname.log", "a")
         io << "#{time.year}-#{time.month}-#{time.day} #{time.hour}:#{time.min}:#{time.sec}"
         io << " /#{username} #{first_name}_#{last_name}/" << " #{line}\n"
         io.close()
@@ -70,7 +70,7 @@ module Unicorn
 
     def numberlog(line, username, first_name, last_name)
         time = Time.now
-        io = File.open("slectednumber.log", "a")
+        io = File.open("/root/ujnphotobot-ruby/slectednumber.log", "a")
         io << "#{time.year}-#{time.month}-#{time.day} #{time.hour}:#{time.min}:#{time.sec}"
         io << " /#{username} #{first_name}_#{last_name}/" << " #{line}\n"
         io.close()
