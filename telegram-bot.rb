@@ -9,9 +9,7 @@ TOKEN = "299913435:AAH0acebPnG2CuaXNU9mv2jwaKgprDbGzuQ"
 Telegram::Bot::Client.run(TOKEN) do |bot|
     bot.listen do |message|
         substr = message.text.split(" ")
-        if substr[0] == nil
-            next
-        end
+        next if num == temp[0][1..11]
         case substr[0]
         when '/start'
             if message.from.first_name != nil

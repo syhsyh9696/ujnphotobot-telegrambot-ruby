@@ -10,9 +10,7 @@ module Unicorn
             while line = io.gets
                 line.chomp!
                 column = line.split()
-                if io.lineno == seed
-                    return column
-                end
+                return column if io.lineno == seed
             end
         end
         return nil
@@ -23,9 +21,7 @@ module Unicorn
         File.open("student_girl.ini", "r") do |io|
             while line = io.gets
                 line.chomp!
-                if io.lineno == seed
-                    return line
-                end
+                return line if io.lineno == seed
             end
         end
         return nil
@@ -46,16 +42,11 @@ module Unicorn
             while line = io.gets
                 line.chomp!
                 column = line.split()
-                if name == column[1]
-                    array << column
-                end
+                array << column if name == column[1]
             end
         end
-        if array.size != 0
-            return array
-        else
-            return nil
-        end
+        return array if array.size != 0
+        return nil
     end
 
     def checknumber(num)
@@ -63,12 +54,10 @@ module Unicorn
             while line = io.gets
                 line.chomp!
                 temp = line.split()
-                if num == temp[0][1..11]
-                    return true
-                end
+                return true if num == temp[0][1..11]
             end
         end
-        return false
+        return nil
     end
 
     def namelog(line, username, first_name, last_name)
