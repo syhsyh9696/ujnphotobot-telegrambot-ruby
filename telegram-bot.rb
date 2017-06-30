@@ -85,7 +85,6 @@ Telegram::Bot::Client.run(TOKEN) do |bot|
                     end
 
                     result = nil
-                    GC.start
                 when '/NUM'
                     if substr[1] == nil
                         bot.api.send_message(chat_id: message.chat.id, text: "你输入的ID是tan90")
@@ -124,7 +123,6 @@ Telegram::Bot::Client.run(TOKEN) do |bot|
                     end
 
                     result = nil
-                    GC.start
                 when '/NUM@UJNPHOTOBOT'
                     if substr[1] == nil
                         bot.api.send_message(chat_id: message.chat.id, text: "你输入的ID是tan90")
