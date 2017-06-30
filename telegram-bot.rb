@@ -13,10 +13,11 @@ def name_selector(str)
                                 :password => 'XuHefeng',
                                 :database => 'student')
 
+    str = client.escape(str)
+
     select_sql = "SELECT stu_num,stu_name,id FROM info_old WHERE stu_name LIKE \'#{str}\'"
     result = client.query(select_sql)
     client.close
-    GC.start
     result
 end
 
@@ -27,6 +28,8 @@ def id_city(id)
                                 :password => 'XuHefeng',
                                 :database => 'stats')
 
+    id = client.escape(id)
+    
     province = client.query("select name from xzqhdm_province where num='#{id[0..1]}'").collect{|x| x}
     city = client.query("select name from xzqhdm where num='#{id[0..3]}00'").collect{|x| x}
     district = client.query("select name from xzqhdm where num='#{id[0..5]}'").collect{|x| x}
@@ -37,7 +40,6 @@ def id_city(id)
     province.each { |item| str << item["name"] << " " }
     city.each { |item| str << item["name"] << " " }
     district.each { |item| str << item["name"]}
-    GC.start
     str
 end
 
