@@ -15,24 +15,33 @@ def name_selector(str)
 
     str = client.escape(str)
 
-    select_sql = "SELECT stu_num,stu_name,id FROM info_old WHERE stu_name LIKE \'#{str}\'"
-    result = client.query(select_sql)
+    select_sql = "SELECT stu_num,stu_name,id FROM info_old WHERE stu_name LIKE '#{str}'"
+    begin
+        result = client.query(select_sql)
+    rescue
+        client.close; return nil
+    end
     client.close
     result
 end
 
 def id_city(id)
     return nil if id == nil
+    return nil if id.size < 18
     client = Mysql2::Client.new(:host => '127.0.0.1',
                                 :username => 'root',
                                 :password => 'XuHefeng',
                                 :database => 'stats')
 
     id = client.escape(id)
+    begin
+        province = client.query("select name from xzqhdm_province where num='#{id[0..1]}'").collect{|x| x}
+        city = client.query("select name from xzqhdm where num='#{id[0..3]}00'").collect{|x| x}
+        district = client.query("select name from xzqhdm where num='#{id[0..5]}'").collect{|x| x}
+    rescue
+        province = nil; city = nil; district = nil
+    end
     
-    province = client.query("select name from xzqhdm_province where num='#{id[0..1]}'").collect{|x| x}
-    city = client.query("select name from xzqhdm where num='#{id[0..3]}00'").collect{|x| x}
-    district = client.query("select name from xzqhdm where num='#{id[0..5]}'").collect{|x| x}
     client.close
 
     str = ""
